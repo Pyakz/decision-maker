@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="title" content="One click decide">
+    <meta name="description" content="Having a hard time to decide? Make it easy with Decision Maker. Just click then go.
+    If you have doubts about the results then choose the opposite of it.">
+
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://decider.netlify.app/">
+    <meta property="og:title" content="One click decide">
+    <meta property="og:description" content="Having a hard time to decide? Make it easy with Decision Maker. Just click then go.
+    If you have doubts about the results then choose the opposite of it.">
+
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://decider.netlify.app/">
+    <meta property="twitter:title" content="One click decide">
+    <meta property="twitter:description" content="Having a hard time to decide? Make it easy with Decision Maker. Just click then go.
+    If you have doubts about the results then choose the opposite of it.">
+
+    
+    <link rel="stylesheet" href="/main.css">
+    <title> Decision Maker </title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <h1 id="decision">Y E S</h1>
+        <button id="get" onClick="window.location.reload()"> D E C I D E </button>
+    </div>
+</body>
+
+
+<script>
+
+    window.addEventListener('DOMContentLoaded', () => Decide());
+
+    function Decide() {
+
+        const DECISION = [{ decision: 'Y E S', BG: '#0c0c0c', fontColor: '#dfdf48' }, { decision: 'N O', BG: '#dfdf48', fontColor: '#0c0c0c' }]
+        const number = Math.round(Math.random())
+        const container = document.getElementById('container');
+        const decision = document.getElementById('decision');
+        const button = document.getElementById('get');
+
+        // GET DECISION BUTTON
+        button.style.backgroundColor = DECISION[number].fontColor
+        button.style.color = DECISION[number].BG
+
+        // App Container 
+        container.style.backgroundColor = DECISION[number].BG
+        container.style.overflow = 'hidden'
+
+        // Decision H1
+        decision.style.color = DECISION[number].fontColor
+        decision.textContent = DECISION[number].decision
+        decision.classList.add('animate')
+    }
+
+</script>
+
+</html>
